@@ -1,0 +1,117 @@
+{
+  "name": "react-mobile-template",
+  "version": "1.0.0",
+  "description": "react-mobile-template",
+  "scripts": {
+    "check": "yarn upgrade-interactive --latest",
+    "lint": "eslint . --ext .js,.ts,.tsx && stylelint **/*.scss",
+    "serve": "cross-env NODE_ENV=development webpack-dev-server --config webpack/webpack.dev.js",
+    "build": "rimraf dist && cross-env NODE_ENV=production webpack --config webpack/webpack.prod.js",
+    "build:performance": "rimraf dist && cross-env NODE_ENV=production PERFORMANCE=1 webpack --config webpack/webpack.prod.js",
+    "test": "cross-env NODE_ENV=TEST jest --watchAll --coverage",
+    "test:single": "cross-env NODE_ENV=TEST jest --coverage",
+    "commit": "git-cz"
+  },
+  "author": {
+    "name": "Qymh",
+    "email": "415570450@qq.com"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.7.0",
+    "@babel/core": "^7.7.2",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/preset-env": "^7.7.1",
+    "@babel/preset-react": "^7.6.3",
+    "@babel/preset-typescript": "^7.7.4",
+    "@commitlint/cli": "^8.2.0",
+    "@commitlint/config-conventional": "^8.2.0",
+    "@types/enzyme": "^3.10.3",
+    "@types/enzyme-adapter-react-16": "^1.0.5",
+    "@types/history": "^4.7.3",
+    "@types/jest": "^24.0.23",
+    "@types/react": "^16.9.11",
+    "@types/react-dom": "^16.9.4",
+    "@types/react-loadable": "^5.5.2",
+    "@types/react-redux": "^7.1.5",
+    "@types/react-router-dom": "^5.1.2",
+    "@types/redux-mock-store": "^1.0.1",
+    "@typescript-eslint/eslint-plugin": "^2.7.0",
+    "@typescript-eslint/parser": "^2.7.0",
+    "autoprefixer": "^9.7.1",
+    "babel-loader": "^8.0.6",
+    "cross-env": "^6.0.3",
+    "css-loader": "^3.2.0",
+    "enzyme": "^3.10.0",
+    "enzyme-adapter-react-16": "^1.15.1",
+    "eslint": "^6.6.0",
+    "eslint-config-prettier": "^6.6.0",
+    "eslint-plugin-import": "^2.18.2",
+    "eslint-plugin-prettier": "^3.1.1",
+    "friendly-errors-webpack-plugin": "^1.7.0",
+    "git-cz": "^3.3.0",
+    "html-webpack-plugin": "^3.2.0",
+    "husky": "^3.1.0",
+    "i18next": "^19.0.1",
+    "jest": "^24.9.0",
+    "jest-css-modules": "^2.1.0",
+    "lint-staged": "^9.5.0",
+    "mini-css-extract-plugin": "^0.8.0",
+    "node-sass": "^4.13.0",
+    "postcss-loader": "^3.0.0",
+    "postcss-px-to-viewport": "^1.1.1",
+    "prettier": "^1.19.1",
+    "progress-bar-webpack-plugin": "^1.12.1",
+    "redux-mock-store": "^1.5.3",
+    "rimraf": "^3.0.0",
+    "sass-loader": "^8.0.0",
+    "script-ext-html-webpack-plugin": "^2.1.4",
+    "size-plugin": "^2.0.1",
+    "style-loader": "^1.0.0",
+    "stylelint": "^12.0.0",
+    "stylelint-config-prettier": "^8.0.0",
+    "stylelint-prettier": "^1.1.1",
+    "ts-jest": "^24.2.0",
+    "typescript": "^3.7.2",
+    "webpack": "^4.41.2",
+    "webpack-bundle-analyzer": "^3.6.0",
+    "webpack-cli": "^3.3.9",
+    "webpack-dev-server": "^3.9.0",
+    "webpack-merge": "^4.2.2"
+  },
+  "dependencies": {
+    "@babel/polyfill": "^7.7.0",
+    "axios": "^0.19.0",
+    "core-js": "^3.4.1",
+    "history": "^4.10.1",
+    "normalize.css": "^8.0.1",
+    "prop-types": "^15.7.2",
+    "react": "^16.11.0",
+    "react-dom": "^16.11.0",
+    "react-i18next": "^11.2.5",
+    "react-loadable": "^5.5.0",
+    "react-redux": "^7.1.1",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.4",
+    "redux-saga": "^1.1.3"
+  },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS",
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.scss": [
+      "stylelint --fix",
+      "git add"
+    ],
+    "*.(t|j)sx": [
+      "eslint --ext .tsx --fix",
+      "git add"
+    ],
+    "*.(t|j)s": [
+      "eslint --ext .js,.ts --fix",
+      "git add"
+    ]
+  }
+}
