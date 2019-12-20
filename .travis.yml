@@ -9,11 +9,13 @@ stages:
   - lint
   - publish
 
-lint:
-  script: yarn lint
+jobs:
+  include:
+    - stage: lint
+      script: yarn lint
 
-publish:
-  branches:
-    only:
-      - dev
-  script: bash scripts/publish.sh
+    - stage: publish
+      branches:
+        only:
+          - dev
+      script: bash scripts/publish.sh

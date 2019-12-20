@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: resolve('dist'),
     publicPath: '/',
-    filename: isDev ? '[name].js' : '[name].[chunkhash].js'
+    filename: isDev ? '[name].js' : '[name].[contenthash].js'
   },
   resolve: {
     alias,
@@ -101,7 +101,8 @@ module.exports = {
   },
   plugins: [
     new Html({
-      template: resolve('public/index.html')
+      template: resolve('public/index.ejs'),
+      env: process.env.NODE_ENV
     }),
     new Progress(),
     new Css({

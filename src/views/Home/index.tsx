@@ -1,14 +1,15 @@
 import './index.scss';
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { connect, DispatchProp } from 'react-redux';
+import { connect, useDispatch } from 'react-redux';
 
-interface Props extends DispatchProp {
+interface Props {
   counter: number;
 }
 
-const Home: React.FC<Props> = ({ counter, dispatch }) => {
+const Home: React.FC<Props> = ({ counter }) => {
   const { t } = useTranslation();
+  const dispatch = useDispatch();
   let [num, setNum] = useState(0);
   function addNum() {
     setNum(++num);
@@ -28,7 +29,7 @@ const Home: React.FC<Props> = ({ counter, dispatch }) => {
   );
 };
 
-function mapStateToProps(state: any) {
+function mapStateToProps(state: Props) {
   return {
     counter: state.counter
   };
