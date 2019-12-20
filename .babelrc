@@ -1,5 +1,9 @@
 {
   "presets": [
+    [
+      "@babel/env",
+      { "useBuiltIns": "usage", "modules": false, "corejs": "3.0.0" }
+    ],
     ["@babel/preset-react"],
     ["@babel/preset-typescript", { "isTSX": true, "allExtensions": true }]
   ],
