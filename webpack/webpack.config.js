@@ -11,7 +11,7 @@ module.exports = {
   output: {
     path: resolve('dist'),
     publicPath: '/',
-    filename: isDev ? '[name].js' : '[name].[contenthash].js'
+    filename: isDev ? 'js/[name].js' : 'js/[name].[contenthash].js'
   },
   resolve: {
     alias,
@@ -106,7 +106,7 @@ module.exports = {
     }),
     new Progress(),
     new Css({
-      filename: isDev ? '[name].css' : '[name].[hash].css'
+      filename: isDev ? 'css/[name].css' : 'css/[name].[hash].css'
     })
   ],
   stats: {
